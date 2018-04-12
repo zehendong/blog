@@ -1,7 +1,8 @@
 ---
 title: 时间序列预测算法：Arima
 date: 2018-03-14 19:25:04
-tags:machine-learning
+tags: machine-learning
+banner: https://www.commercialradio.my/wp-content/uploads/2015/03/CRM_Trendstatistic.jpg
 ---
 时间序列（time series）是一门特殊的研究方向，在我们生活中处处可见。因此时间序列
 的研究也广泛应用于型号处理、模式识别、计量经济、天气预报等。本文将要介绍的是一种

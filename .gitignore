@@ -151,3 +151,5 @@ crashlytics-build.properties
 fabric.properties
 
 .idea/**/Project.xml
+
+node_modules

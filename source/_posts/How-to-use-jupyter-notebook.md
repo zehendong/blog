@@ -2,6 +2,7 @@
 title: How to use jupyter notebook
 date: 2018-03-14 15:48:47
 tags:
+banner: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0UqeAGEP5wdAvLPkDqWhvHk8OovCvHeJ_OPf2fWi4EAICHG0Ew
 ---
 
 ### 1.Jupyter NoteBook 安装
@@ -19,6 +20,8 @@ c.NotebookApp.notebook_dir = 'F:\kaggle'
 ```
 设置了这个之后无论在哪个cmd窗口输入 *jupyter notebook* 都会直接将home目录设置为
 上面的dir
+
+<!--more-->
 
 #### 2.2 在文件目录下打开
 进入想要的home目录
