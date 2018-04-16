@@ -3,23 +3,29 @@
 <head>
     <meta charset="utf-8">
     
-    <title>How to use jupyter notebook | Eric&#39;s Playground</title>
+    <title>锁的使用指南(二) | Eric&#39;s Playground</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1.Jupyter NoteBook 安装目前，最新版本的Anaconda是自带Jupyter NoteBook的，不需要再单独安装
-2.更改Jupyter Notebook 的工作空间2.1 直接更改配置文件12345#in cmdjupyter notebook --generate-config#set c.NotebookApp.notebook_dirc.NotebookApp.note">
+    <meta name="description" content="之前介绍了一下我们程序中锁的分类，这篇文章将着重讲讲，java中的锁。
+Synchronized众所周知，Java提供了synchronized字段来对代码块进行加锁。oracle给出一下解释：
+
+You might wonder what happens when a static synchronized method is invoked, since a static method is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to use jupyter notebook">
-<meta property="og:url" content="http://yoursite.com/2018/03/14/How-to-use-jupyter-notebook/index.html">
+<meta property="og:title" content="锁的使用指南(二)">
+<meta property="og:url" content="http://yoursite.com/2017/02/12/锁的使用指南2/index.html">
 <meta property="og:site_name" content="Eric's Playground">
-<meta property="og:description" content="1.Jupyter NoteBook 安装目前，最新版本的Anaconda是自带Jupyter NoteBook的，不需要再单独安装
-2.更改Jupyter Notebook 的工作空间2.1 直接更改配置文件12345#in cmdjupyter notebook --generate-config#set c.NotebookApp.notebook_dirc.NotebookApp.note">
-<meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0UqeAGEP5wdAvLPkDqWhvHk8OovCvHeJ_OPf2fWi4EAICHG0Ew">
-<meta property="og:updated_time" content="2018-04-12T08:14:11.404Z">
+<meta property="og:description" content="之前介绍了一下我们程序中锁的分类，这篇文章将着重讲讲，java中的锁。
+Synchronized众所周知，Java提供了synchronized字段来对代码块进行加锁。oracle给出一下解释：
+
+You might wonder what happens when a static synchronized method is invoked, since a static method is">
+<meta property="og:image" content="http://www.ballroomguide.com/images/lock.jpg">
+<meta property="og:updated_time" content="2018-04-16T13:17:48.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How to use jupyter notebook">
-<meta name="twitter:description" content="1.Jupyter NoteBook 安装目前，最新版本的Anaconda是自带Jupyter NoteBook的，不需要再单独安装
-2.更改Jupyter Notebook 的工作空间2.1 直接更改配置文件12345#in cmdjupyter notebook --generate-config#set c.NotebookApp.notebook_dirc.NotebookApp.note">
-<meta name="twitter:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0UqeAGEP5wdAvLPkDqWhvHk8OovCvHeJ_OPf2fWi4EAICHG0Ew">
+<meta name="twitter:title" content="锁的使用指南(二)">
+<meta name="twitter:description" content="之前介绍了一下我们程序中锁的分类，这篇文章将着重讲讲，java中的锁。
+Synchronized众所周知，Java提供了synchronized字段来对代码块进行加锁。oracle给出一下解释：
+
+You might wonder what happens when a static synchronized method is invoked, since a static method is">
+<meta name="twitter:image" content="http://www.ballroomguide.com/images/lock.jpg">
     
 
     
@@ -214,12 +220,12 @@
 </aside>
 
             
-            <section id="main"><article id="post-How-to-use-jupyter-notebook" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-锁的使用指南2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             
 	
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0UqeAGEP5wdAvLPkDqWhvHk8OovCvHeJ_OPf2fWi4EAICHG0Ew" class="article-banner" />
+		<img src="http://www.ballroomguide.com/images/lock.jpg" class="article-banner" />
 	
 
 
@@ -230,7 +236,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            How to use jupyter notebook
+            锁的使用指南(二)
         </h1>
     
 
@@ -239,14 +245,19 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/14/How-to-use-jupyter-notebook/">
-            <time datetime="2018-03-14T07:48:47.000Z" itemprop="datePublished">2018-03-14</time>
+        <a href="/2017/02/12/锁的使用指南2/">
+            <time datetime="2017-02-12T06:29:13.000Z" itemprop="datePublished">2017-02-12</time>
         </a>
     </div>
 
 
                         
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/">Java</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -255,46 +266,30 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h3 id="1-Jupyter-NoteBook-安装"><a href="#1-Jupyter-NoteBook-安装" class="headerlink" title="1.Jupyter NoteBook 安装"></a>1.Jupyter NoteBook 安装</h3><p>目前，最新版本的Anaconda是自带Jupyter NoteBook的，不需要再单独安装</p>
-<h3 id="2-更改Jupyter-Notebook-的工作空间"><a href="#2-更改Jupyter-Notebook-的工作空间" class="headerlink" title="2.更改Jupyter Notebook 的工作空间"></a>2.更改Jupyter Notebook 的工作空间</h3><h4 id="2-1-直接更改配置文件"><a href="#2-1-直接更改配置文件" class="headerlink" title="2.1 直接更改配置文件"></a>2.1 直接更改配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#in cmd</div><div class="line">jupyter notebook --generate-config</div><div class="line"></div><div class="line">#set c.NotebookApp.notebook_dir</div><div class="line">c.NotebookApp.notebook_dir = &apos;F:\kaggle&apos;</div></pre></td></tr></table></figure>
-<p>设置了这个之后无论在哪个cmd窗口输入 <em>jupyter notebook</em> 都会直接将home目录设置为<br>上面的dir</p>
+            <p>之前介绍了一下我们程序中锁的分类，这篇文章将着重讲讲，java中的锁。</p>
+<h2 id="Synchronized"><a href="#Synchronized" class="headerlink" title="Synchronized"></a>Synchronized</h2><p>众所周知，Java提供了synchronized字段来对代码块进行加锁。oracle给出一下解释：</p>
+<blockquote>
+<p>You might wonder what happens when a static synchronized method is invoked, since a static method is associated with a class, not an object. In this case, the thread acquires the intrinsic lock for the Class object associated with the class. Thus access to class’s static fields is controlled by a lock that’s distinct from the lock for any instance of the class.</p>
+</blockquote>
 <a id="more"></a>
-<h4 id="2-2-在文件目录下打开"><a href="#2-2-在文件目录下打开" class="headerlink" title="2.2 在文件目录下打开"></a>2.2 在文件目录下打开</h4><p>进入想要的home目录</p>
-<p>输入cmd，在cmd窗口输入jupyter notebook</p>
-<p><img src="http://chuantu.biz/t6/241/1519960915x-1404814622.png" alt=""></p>
-<h3 id="3-Jupyter-快捷键"><a href="#3-Jupyter-快捷键" class="headerlink" title="3.Jupyter 快捷键"></a>3.Jupyter 快捷键</h3><ul>
-<li><p>执行当前cell，并自动跳到下一个cell：Shift Enter</p>
+<p>通过用Synchronized关键字来给代码块加锁，来看个例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</div><div class="line">        lastName = name;</div><div class="line">        nameCount++;</div><div class="line">    &#125;</div><div class="line">    nameList.add(name);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>对于synchronized的代码块，同时只能一个线程执行。所以他其实就是上一篇讲到的独占锁。并且他是一把<br>非公平锁。</p>
+<h2 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h2><p>在Java SE5的concurrent库类中，引入了lock的显式互斥机制。相比较Synchronize的方式，Lock比较<br>麻烦，但是对于解决某些类型的问题来说，lock就更加灵活了。</p>
+<p>ReentrantLock类实现了Lock接口，并提供了一些高级功能，主要有以下3项：</p>
+<ol>
+<li><p>等待可中断，持有锁的线程长期不释放的时候，正在等待的线程可以选择放弃等待，这相当于Synchronized来说可以避免出现死锁的情况。</p>
 </li>
-<li><p>执行当前cell，执行后不自动调转到下一个cell：Ctrl-Enter</p>
+<li><p>公平锁，多个线程等待同一个锁时，必须按照申请锁的时间顺序获得锁，Synchronized锁非公平锁，ReentrantLock默认的构造函数是创建的非公平锁，可以通过参数true设为公平锁，但公平锁表现的性能不是很好。</p>
 </li>
-<li><p>是当前的cell进入编辑模式：Enter</p>
+<li><p>锁绑定多个条件，一个ReentrantLock对象可以同时绑定对个对象。</p>
 </li>
-<li><p>退出当前cell的编辑模式：Esc</p>
-</li>
-<li><p>删除当前的cell：双D</p>
-</li>
-<li><p>为当前的cell加入line number：单L</p>
-</li>
-<li><p>将当前的cell转化为具有一级标题的maskdown：单1</p>
-</li>
-<li><p>将当前的cell转化为具有二级标题的maskdown：单2</p>
-</li>
-<li><p>将当前的cell转化为具有三级标题的maskdown：单3</p>
-</li>
-<li><p>为一行或者多行添加/取消注释：Crtl /</p>
-</li>
-<li><p>撤销对某个cell的删除：z</p>
-</li>
-<li><p>浏览器的各个Tab之间切换：Crtl PgUp和Crtl PgDn</p>
-</li>
-<li><p>快速跳转到首个cell：Crtl Home</p>
-</li>
-<li><p>快速跳转到最后一个有内容的cell：Crtl End</p>
-</li>
-</ul>
-<h3 id="4-其他"><a href="#4-其他" class="headerlink" title="4.其他"></a>4.其他</h3><h4 id="4-1导入本地python文件"><a href="#4-1导入本地python文件" class="headerlink" title="4.1导入本地python文件"></a>4.1导入本地python文件</h4><p>在需要导入该段代码的cell中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%load test.py #test.py是当前路径下的一个python文件</div></pre></td></tr></table></figure></p>
-<h4 id="4-2-运行python文件"><a href="#4-2-运行python文件" class="headerlink" title="4.2 运行python文件"></a>4.2 运行python文件</h4><p>利用jupyter的cell是可以运行python文件的，即在cell中运行如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%run file.py</div></pre></td></tr></table></figure></p>
-<h4 id="4-3-使用Matplotlib绘图"><a href="#4-3-使用Matplotlib绘图" class="headerlink" title="4.3 使用Matplotlib绘图"></a>4.3 使用Matplotlib绘图</h4><p>在Jupyter Notebook中，如果使用Matplotlib绘图，有时是弹不出图像框的，此时，可以在开头加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%matplotlib inline</div></pre></td></tr></table></figure></p>
+</ol>
+<p>ReentrantLock的核心方法是lock()，unlock()，tryLock()，比如源代码中的i例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Lock lock = <span class="keyword">new</span> ReentrantLock();</div><div class="line"><span class="keyword">if</span> (lock.tryLock()) &#123;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="comment">// manipulate protected state</span></div><div class="line">  &#125; <span class="keyword">finally</span> &#123;</div><div class="line">    lock.unlock();</div><div class="line">  &#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">   <span class="comment">// perform alternative actions</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="ReentrantReadWriteLock"><a href="#ReentrantReadWriteLock" class="headerlink" title="ReentrantReadWriteLock"></a>ReentrantReadWriteLock</h2><p>ReentrantReadWriteLock实现的是ReadWriteLock。核心方法是readLock，writeLock。实现了并发读、互斥写。但读锁会阻塞写锁，是一种悲观锁的策略。</p>
+<p>因此在一些并发需求高的情况下我们可以用reentrantReadWriteLock。他默认为非公平锁，但也可以设置成公平锁，具体的实现可以看看<br>Doug Lea大大的源码。</p>
+<h2 id="StampedLock"><a href="#StampedLock" class="headerlink" title="StampedLock"></a>StampedLock</h2><p>当读线程太多，而写线程比较少的情况下，写线程就很有可能出现饿死情况。因此在这种情况下，1.8推出了<br>StampedLock。它是三种模式：写、读、乐观读，读的时候不影响写，通过stamp来控制变量的是否发生了改变。</p>
+<p>下面是自带的一个例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">double</span> x, y;</div><div class="line">   <span class="keyword">private</span> <span class="keyword">final</span> StampedLock sl = <span class="keyword">new</span> StampedLock();</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">(<span class="keyword">double</span> deltaX, <span class="keyword">double</span> deltaY)</span> </span>&#123; <span class="comment">// an exclusively locked method</span></div><div class="line">     <span class="keyword">long</span> stamp = sl.writeLock();</div><div class="line">     <span class="keyword">try</span> &#123;</div><div class="line">       x += deltaX;</div><div class="line">       y += deltaY;</div><div class="line">     &#125; <span class="keyword">finally</span> &#123;</div><div class="line">       sl.unlockWrite(stamp);</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">double</span> <span class="title">distanceFromOrigin</span><span class="params">()</span> </span>&#123; <span class="comment">// A read-only method</span></div><div class="line">     <span class="keyword">long</span> stamp = sl.tryOptimisticRead();</div><div class="line">     <span class="keyword">double</span> currentX = x, currentY = y;</div><div class="line">     <span class="keyword">if</span> (!sl.validate(stamp)) &#123;</div><div class="line">        stamp = sl.readLock();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">          currentX = x;</div><div class="line">          currentY = y;</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">           sl.unlockRead(stamp);</div><div class="line">        &#125;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> Math.sqrt(currentX  currentX + currentY  currentY);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">void</span> <span class="title">moveIfAtOrigin</span><span class="params">(<span class="keyword">double</span> newX, <span class="keyword">double</span> newY)</span> </span>&#123; <span class="comment">// upgrade</span></div><div class="line">     <span class="comment">// Could instead start with optimistic, not read mode</span></div><div class="line">    <span class="keyword">long</span> stamp = sl.readLock();</div><div class="line">     <span class="keyword">try</span> &#123;</div><div class="line">       <span class="keyword">while</span> (x == <span class="number">0.0</span> &amp;&amp; y == <span class="number">0.0</span>) &#123;</div><div class="line">         <span class="keyword">long</span> ws = sl.tryConvertToWriteLock(stamp);</div><div class="line">         <span class="keyword">if</span> (ws != <span class="number">0L</span>) &#123;</div><div class="line">           stamp = ws;</div><div class="line">           x = newX;</div><div class="line">           y = newY;</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">         &#125;</div><div class="line">         <span class="keyword">else</span> &#123;</div><div class="line">           sl.unlockRead(stamp);</div><div class="line">           stamp = sl.writeLock();</div><div class="line">         &#125;</div><div class="line">       &#125;</div><div class="line">     &#125; <span class="keyword">finally</span> &#123;</div><div class="line">       sl.unlock(stamp);</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>好了，java中锁的例子，本文就先介绍到这里。具体Lea大大的JUL代码，也值得好好的品读~</p>
 
         
         </div>
@@ -305,7 +300,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/03/14/How-to-use-jupyter-notebook/" data-id="cjfw8vnu20001d0qciqssl07v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2017/02/12/锁的使用指南2/" data-id="cjg29lmed0000xoqcb2g3qjem" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -380,19 +375,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/03/14/时间序列预测算法：Arima/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2017/02/18/2018读书单/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    时间序列预测算法：Arima
+                    2017 Read List
                 
             </div>
         </a>
     
     
-        <a href="/2017/02/18/2018读书单/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/01/09/锁的使用指南/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">2017 Read List</div>
+            <div class="article-nav-title">锁的使用指南(一)</div>
         </a>
     
 </nav>
