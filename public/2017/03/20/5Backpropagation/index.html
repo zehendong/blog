@@ -3,23 +3,23 @@
 <head>
     <meta charset="utf-8">
     
-    <title>How to use jupyter notebook | Eric&#39;s Playground</title>
+    <title>Backpropagation | Eric&#39;s Playground</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="1.Jupyter NoteBook 安装目前，最新版本的Anaconda是自带Jupyter NoteBook的，不需要再单独安装
-2.更改Jupyter Notebook 的工作空间2.1 直接更改配置文件12345#in cmdjupyter notebook --generate-config#set c.NotebookApp.notebook_dirc.NotebookApp.note">
+    <meta name="description" content="Backpropagation 算法在神经网络中扮演这重要作用。他的出现使得我们先计算neural network的gradients descent的时候更加有效。本文就重点来讲讲backpropagation的实现原理。
+深度学习中的名词都看上去比较高大上，什么backpropagation\forwark pass\backwark pass等等，其实内部用到的数学知识就只用到了chain">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to use jupyter notebook">
-<meta property="og:url" content="http://yoursite.com/2018/03/14/How-to-use-jupyter-notebook/index.html">
+<meta property="og:title" content="Backpropagation">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/5Backpropagation/index.html">
 <meta property="og:site_name" content="Eric's Playground">
-<meta property="og:description" content="1.Jupyter NoteBook 安装目前，最新版本的Anaconda是自带Jupyter NoteBook的，不需要再单独安装
-2.更改Jupyter Notebook 的工作空间2.1 直接更改配置文件12345#in cmdjupyter notebook --generate-config#set c.NotebookApp.notebook_dirc.NotebookApp.note">
-<meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0UqeAGEP5wdAvLPkDqWhvHk8OovCvHeJ_OPf2fWi4EAICHG0Ew">
-<meta property="og:updated_time" content="2018-04-12T08:14:11.404Z">
+<meta property="og:description" content="Backpropagation 算法在神经网络中扮演这重要作用。他的出现使得我们先计算neural network的gradients descent的时候更加有效。本文就重点来讲讲backpropagation的实现原理。
+深度学习中的名词都看上去比较高大上，什么backpropagation\forwark pass\backwark pass等等，其实内部用到的数学知识就只用到了chain">
+<meta property="og:image" content="https://typeset-beta.imgix.net/rehost/2016/9/13/8f21f4ef-d61e-4fdf-99d5-ce299afc4e1a.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70">
+<meta property="og:updated_time" content="2018-04-19T12:06:54.315Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="How to use jupyter notebook">
-<meta name="twitter:description" content="1.Jupyter NoteBook 安装目前，最新版本的Anaconda是自带Jupyter NoteBook的，不需要再单独安装
-2.更改Jupyter Notebook 的工作空间2.1 直接更改配置文件12345#in cmdjupyter notebook --generate-config#set c.NotebookApp.notebook_dirc.NotebookApp.note">
-<meta name="twitter:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0UqeAGEP5wdAvLPkDqWhvHk8OovCvHeJ_OPf2fWi4EAICHG0Ew">
+<meta name="twitter:title" content="Backpropagation">
+<meta name="twitter:description" content="Backpropagation 算法在神经网络中扮演这重要作用。他的出现使得我们先计算neural network的gradients descent的时候更加有效。本文就重点来讲讲backpropagation的实现原理。
+深度学习中的名词都看上去比较高大上，什么backpropagation\forwark pass\backwark pass等等，其实内部用到的数学知识就只用到了chain">
+<meta name="twitter:image" content="https://typeset-beta.imgix.net/rehost/2016/9/13/8f21f4ef-d61e-4fdf-99d5-ce299afc4e1a.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70">
     
 
     
@@ -162,11 +162,11 @@
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                6
+                8
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                3
+                4
                 <span>tags</span>
             </div>
         </div>
@@ -214,12 +214,12 @@
 </aside>
 
             
-            <section id="main"><article id="post-How-to-use-jupyter-notebook" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-5Backpropagation" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             
 	
-		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0UqeAGEP5wdAvLPkDqWhvHk8OovCvHeJ_OPf2fWi4EAICHG0Ew" class="article-banner" />
+		<img src="https://typeset-beta.imgix.net/rehost/2016/9/13/8f21f4ef-d61e-4fdf-99d5-ce299afc4e1a.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70" class="article-banner" />
 	
 
 
@@ -230,7 +230,7 @@
                 
     
         <h1 class="article-title" itemprop="name">
-            How to use jupyter notebook
+            Backpropagation
         </h1>
     
 
@@ -239,14 +239,19 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2018/03/14/How-to-use-jupyter-notebook/">
-            <time datetime="2018-03-14T07:48:47.000Z" itemprop="datePublished">2018-03-14</time>
+        <a href="/2017/03/20/5Backpropagation/">
+            <time datetime="2017-03-20T09:29:14.000Z" itemprop="datePublished">2017-03-20</time>
         </a>
     </div>
 
 
                         
                         
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/deep-learning/">deep learning</a>
+    </div>
+
                     </div>
                 
             </header>
@@ -255,46 +260,22 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h3 id="1-Jupyter-NoteBook-安装"><a href="#1-Jupyter-NoteBook-安装" class="headerlink" title="1.Jupyter NoteBook 安装"></a>1.Jupyter NoteBook 安装</h3><p>目前，最新版本的Anaconda是自带Jupyter NoteBook的，不需要再单独安装</p>
-<h3 id="2-更改Jupyter-Notebook-的工作空间"><a href="#2-更改Jupyter-Notebook-的工作空间" class="headerlink" title="2.更改Jupyter Notebook 的工作空间"></a>2.更改Jupyter Notebook 的工作空间</h3><h4 id="2-1-直接更改配置文件"><a href="#2-1-直接更改配置文件" class="headerlink" title="2.1 直接更改配置文件"></a>2.1 直接更改配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#in cmd</div><div class="line">jupyter notebook --generate-config</div><div class="line"></div><div class="line">#set c.NotebookApp.notebook_dir</div><div class="line">c.NotebookApp.notebook_dir = &apos;F:\kaggle&apos;</div></pre></td></tr></table></figure>
-<p>设置了这个之后无论在哪个cmd窗口输入 <em>jupyter notebook</em> 都会直接将home目录设置为<br>上面的dir</p>
-<a id="more"></a>
-<h4 id="2-2-在文件目录下打开"><a href="#2-2-在文件目录下打开" class="headerlink" title="2.2 在文件目录下打开"></a>2.2 在文件目录下打开</h4><p>进入想要的home目录</p>
-<p>输入cmd，在cmd窗口输入jupyter notebook</p>
-<p><img src="http://chuantu.biz/t6/241/1519960915x-1404814622.png" alt=""></p>
-<h3 id="3-Jupyter-快捷键"><a href="#3-Jupyter-快捷键" class="headerlink" title="3.Jupyter 快捷键"></a>3.Jupyter 快捷键</h3><ul>
-<li><p>执行当前cell，并自动跳到下一个cell：Shift Enter</p>
-</li>
-<li><p>执行当前cell，执行后不自动调转到下一个cell：Ctrl-Enter</p>
-</li>
-<li><p>是当前的cell进入编辑模式：Enter</p>
-</li>
-<li><p>退出当前cell的编辑模式：Esc</p>
-</li>
-<li><p>删除当前的cell：双D</p>
-</li>
-<li><p>为当前的cell加入line number：单L</p>
-</li>
-<li><p>将当前的cell转化为具有一级标题的maskdown：单1</p>
-</li>
-<li><p>将当前的cell转化为具有二级标题的maskdown：单2</p>
-</li>
-<li><p>将当前的cell转化为具有三级标题的maskdown：单3</p>
-</li>
-<li><p>为一行或者多行添加/取消注释：Crtl /</p>
-</li>
-<li><p>撤销对某个cell的删除：z</p>
-</li>
-<li><p>浏览器的各个Tab之间切换：Crtl PgUp和Crtl PgDn</p>
-</li>
-<li><p>快速跳转到首个cell：Crtl Home</p>
-</li>
-<li><p>快速跳转到最后一个有内容的cell：Crtl End</p>
-</li>
-</ul>
-<h3 id="4-其他"><a href="#4-其他" class="headerlink" title="4.其他"></a>4.其他</h3><h4 id="4-1导入本地python文件"><a href="#4-1导入本地python文件" class="headerlink" title="4.1导入本地python文件"></a>4.1导入本地python文件</h4><p>在需要导入该段代码的cell中输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%load test.py #test.py是当前路径下的一个python文件</div></pre></td></tr></table></figure></p>
-<h4 id="4-2-运行python文件"><a href="#4-2-运行python文件" class="headerlink" title="4.2 运行python文件"></a>4.2 运行python文件</h4><p>利用jupyter的cell是可以运行python文件的，即在cell中运行如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%run file.py</div></pre></td></tr></table></figure></p>
-<h4 id="4-3-使用Matplotlib绘图"><a href="#4-3-使用Matplotlib绘图" class="headerlink" title="4.3 使用Matplotlib绘图"></a>4.3 使用Matplotlib绘图</h4><p>在Jupyter Notebook中，如果使用Matplotlib绘图，有时是弹不出图像框的，此时，可以在开头加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%matplotlib inline</div></pre></td></tr></table></figure></p>
+            <p>Backpropagation 算法在神经网络中扮演这重要作用。他的出现使得我们先计算neural network的gradients descent的时候更加有效。本文就重点来讲讲backpropagation的实现原理。</p>
+<p>深度学习中的名词都看上去比较高大上，什么backpropagation\forwark pass\backwark pass等等，其实内部用到的数学知识就只用到了chain role。</p>
+<p><img src="css/images/pic/bp1.png" alt="pic1"></p>
+<p>比方说我们现在有输入 $x^n$ 经过 neural network 得到输出 $y^n$,我们把残差记作 $C_n$</p>
+<p>我们就可以得到残差，及其微分<br>$$L(\theta) = \sum_{i=1}^N C^n(\theta)$$</p>
+<p>$$\frac{\partial L(\theta)}{\partial w} = \sum_{n=1}^N \frac{\partial C^n (\theta)} {\partial w}$$</p>
+<p><img src="css/images/pic/bp2.png" alt="pic1"></p>
+<p>上图是我们的网络的具体样子，先只关注红色框框里的这一部分：</p>
+<p><img src="css/images/pic/bp3.png" alt=""></p>
+<p>根据chain role，只关注一项C，因为求和都是一样的。<br>$$\frac{\partial C}{\partial w} = \frac{\partial z}{\partial w}\frac{\partial C}{\partial z}$$</p>
+<p>那么这里的$\frac{\partial z}{\partial w}$ 就是forward pass；$\frac{\partial C}{\partial z}$就是我们backward pass。</p>
+<p>为什么这么说，看下面的图就很好理解，</p>
+<p><img src="css/images/pic/bp4.png" alt=""></p>
+<p>口算就能得出$\frac{\partial z}{\partial w_1} = x_1$, $\frac{\partial z}{\partial w_2} = x_2$ ，而我们可以想想一下，下一层的偏微分其实就是z经过 activate function之后的value。所以就叫做forward pass。</p>
+<p><img src="css/images/pic/bp5.png" alt=""></p>
+<p>根据上面这张图，我们可以推导出来<br>$$\frac{\partial C}{\partial z} = \sigma    ‘(z) [w_3 \frac{\partial C}{\partial z’} + w_4 \frac{\partial C}{\partial z’’}]$$<br>那$\frac{\partial C}{\partial z’}$以此类推，需要根据下一层的$\frac{\partial C}{\partial z’’’}$得到。一直到output为止。然后我们就可以反过来看这个nerual netwrok他的形式其实如下图：<br><img src="css/images/pic/bp6.png" alt=""><br>所以我们可以根据output反向，依次进行计算出每一层的$\frac{\partial C}{\partial z_i}$。最后两项相乘就得到了我们要求的<br>$$\frac{\partial C}{\partial w} = \frac{\partial z}{\partial w}\frac{\partial C}{\partial z}$$</p>
 
         
         </div>
@@ -305,7 +286,7 @@
 
 </div>
 
-    <a data-url="http://yoursite.com/2018/03/14/How-to-use-jupyter-notebook/" data-id="cjfw8vnu20001d0qciqssl07v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://yoursite.com/2017/03/20/5Backpropagation/" data-id="cjg6he6y4000i0kqc7gj4rrg6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -380,19 +361,19 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/03/14/时间序列预测算法：Arima/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/03/14/6How-to-use-jupyter-notebook/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    时间序列预测算法：Arima
+                    How to use jupyter notebook
                 
             </div>
         </a>
     
     
-        <a href="/2017/02/18/2018读书单/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2017/03/18/4Neural Networks/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">2017 Read List</div>
+            <div class="article-nav-title">Neural Networks</div>
         </a>
     
 </nav>
@@ -438,7 +419,7 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/03/14/How-to-use-jupyter-notebook/" class="thumbnail">
+                            <a href="/2018/03/14/6How-to-use-jupyter-notebook/" class="thumbnail">
     
     
         <span style="background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0UqeAGEP5wdAvLPkDqWhvHk8OovCvHeJ_OPf2fWi4EAICHG0Ew)" alt="How to use jupyter notebook" class="thumbnail-image"></span>
@@ -449,7 +430,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/03/14/How-to-use-jupyter-notebook/" class="title">How to use jupyter notebook</a></p>
+                            <p class="item-title"><a href="/2018/03/14/6How-to-use-jupyter-notebook/" class="title">How to use jupyter notebook</a></p>
                             <p class="item-date"><time datetime="2018-03-14T07:48:47.000Z" itemprop="datePublished">2018-03-14</time></p>
                         </div>
                     </li>
@@ -457,7 +438,45 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2017/02/18/2018读书单/" class="thumbnail">
+                            <a href="/2017/03/20/5Backpropagation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://typeset-beta.imgix.net/rehost/2016/9/13/8f21f4ef-d61e-4fdf-99d5-ce299afc4e1a.jpg?w=970&amp;h=582&amp;fit=crop&amp;crop=faces&amp;auto=format&amp;q=70)" alt="Backpropagation" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/03/20/5Backpropagation/" class="title">Backpropagation</a></p>
+                            <p class="item-date"><time datetime="2017-03-20T09:29:14.000Z" itemprop="datePublished">2017-03-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/03/18/4Neural Networks/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://typeset-beta.imgix.net/rehost/2016/9/13/8f21f4ef-d61e-4fdf-99d5-ce299afc4e1a.jpg?w=970&amp;h=582&amp;fit=crop&amp;crop=faces&amp;auto=format&amp;q=70)" alt="Neural Networks" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/03/18/4Neural Networks/" class="title">Neural Networks</a></p>
+                            <p class="item-date"><time datetime="2017-03-18T09:29:14.000Z" itemprop="datePublished">2017-03-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/02/18/3读书单/" class="thumbnail">
     
     
         <span style="background-image:url(https://typeset-beta.imgix.net/rehost/2016/9/13/8f21f4ef-d61e-4fdf-99d5-ce299afc4e1a.jpg?w=970&amp;h=582&amp;fit=crop&amp;crop=faces&amp;auto=format&amp;q=70)" alt="2017 Read List" class="thumbnail-image"></span>
@@ -468,46 +487,8 @@
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/02/18/2018读书单/" class="title">2017 Read List</a></p>
+                            <p class="item-title"><a href="/2017/02/18/3读书单/" class="title">2017 Read List</a></p>
                             <p class="item-date"><time datetime="2017-02-18T09:29:14.000Z" itemprop="datePublished">2017-02-18</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/02/12/锁的使用指南2/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.ballroomguide.com/images/lock.jpg)" alt="锁的使用指南(二)" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/02/12/锁的使用指南2/" class="title">锁的使用指南(二)</a></p>
-                            <p class="item-date"><time datetime="2017-02-12T06:29:13.000Z" itemprop="datePublished">2017-02-12</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2017/01/09/锁的使用指南/" class="thumbnail">
-    
-    
-        <span style="background-image:url(http://www.ballroomguide.com/images/lock.jpg)" alt="锁的使用指南(一)" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2017/01/09/锁的使用指南/" class="title">锁的使用指南(一)</a></p>
-                            <p class="item-date"><time datetime="2017-01-09T06:29:13.000Z" itemprop="datePublished">2017-01-09</time></p>
                         </div>
                     </li>
                 
@@ -522,7 +503,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -531,7 +512,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine-learning</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/">deep learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/">machine-learning</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -540,7 +521,7 @@
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine-learning</a>
+            <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/blog/" style="font-size: 20px;">blog</a> <a href="/tags/deep-learning/" style="font-size: 20px;">deep learning</a> <a href="/tags/machine-learning/" style="font-size: 10px;">machine-learning</a>
         </div>
     </div>
 
@@ -591,6 +572,12 @@
     
         <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
     
+    
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+        </script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_HTMLorMML.js"></script>
     
 
 
