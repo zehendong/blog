@@ -1,12 +1,10 @@
 ---
 title: Neural Networks
 date: 2017-03-18 17:29:14
-banner: https://typeset-beta.imgix.net/rehost/2016/9/13/8f21f4ef-d61e-4fdf-99d5-ce299afc4e1a.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70
+banner: /css/images/pic/nn.jpeg
 tags: deep learning
 ---
 
-Neural Networks
----
 这篇文章将简单介绍一下神经网络。我们先考虑有一个supervised learning的问题（），然后我们手头上有一堆带标签的训练样本，用 $(x_i,y_i)$ 来表示。
 神经网络（Neural Networks）会根据这些样本进行训练，然后给出一个复杂、非线性的hypotheses $h_W,b(x)$的模型，来拟合我们的数据，其中
 的W，b为我们模型的参数。

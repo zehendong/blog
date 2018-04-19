@@ -1,7 +1,7 @@
 ---
 title: Backpropagation
 date: 2017-03-20 17:29:14
-banner: https://typeset-beta.imgix.net/rehost/2016/9/13/8f21f4ef-d61e-4fdf-99d5-ce299afc4e1a.jpg?w=970&h=582&fit=crop&crop=faces&auto=format&q=70
+banner: /css/images/pic/bp7.png
 tags: deep learning
 ---
 
