@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="deep learning," />
+  <meta name="keywords" content="machine-learning," />
 
 
 
@@ -79,21 +79,25 @@
 
 
 
-<meta name="description" content="这篇文章将简单介绍一下神经网络。我们先考虑有一个supervised learning的问题（），然后我们手头上有一堆带标签的训练样本，用 $(x_i,y_i)$ 来表示。神经网络（Neural Networks）会根据这些样本进行训练，然后给出一个复杂、非线性的hypotheses $h_W,b(x)$的模型，来拟合我们的数据，其中的W，b为我们模型的参数。">
+<meta name="description" content="激活函数是我们在deep learning中至关重要的一个因子。所以今天就来简单的归纳一下activate function。
+每一个nueron都会带一个activation function，可见其重要性。一般来说，有这么几种性质：
+
+非线性。因为如果说activation function如果说是linear function的话，那么deep learning就可以只需要一层layer就可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Neural Networks">
-<meta property="og:url" content="http://yoursite.com/2017/03/18/4Neural Networks/index.html">
+<meta property="og:title" content="Activation function">
+<meta property="og:url" content="http://yoursite.com/2018/03/14/8activate-function/index.html">
 <meta property="og:site_name" content="Eric's Playground">
-<meta property="og:description" content="这篇文章将简单介绍一下神经网络。我们先考虑有一个supervised learning的问题（），然后我们手头上有一堆带标签的训练样本，用 $(x_i,y_i)$ 来表示。神经网络（Neural Networks）会根据这些样本进行训练，然后给出一个复杂、非线性的hypotheses $h_W,b(x)$的模型，来拟合我们的数据，其中的W，b为我们模型的参数。">
-<meta property="og:image" content="http://yoursite.com/images/pic/300px-SingleNeuron.png">
-<meta property="og:image" content="http://yoursite.com/images/pic/400px-Sigmoid_Function.png">
-<meta property="og:image" content="http://yoursite.com/images/pic/400px-Tanh_Function.png">
-<meta property="og:image" content="http://yoursite.com/images/pic/400px-Network331.png">
-<meta property="og:updated_time" content="2018-04-25T07:09:18.455Z">
+<meta property="og:description" content="激活函数是我们在deep learning中至关重要的一个因子。所以今天就来简单的归纳一下activate function。
+每一个nueron都会带一个activation function，可见其重要性。一般来说，有这么几种性质：
+
+非线性。因为如果说activation function如果说是linear function的话，那么deep learning就可以只需要一层layer就可">
+<meta property="og:updated_time" content="2018-04-25T06:40:34.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Neural Networks">
-<meta name="twitter:description" content="这篇文章将简单介绍一下神经网络。我们先考虑有一个supervised learning的问题（），然后我们手头上有一堆带标签的训练样本，用 $(x_i,y_i)$ 来表示。神经网络（Neural Networks）会根据这些样本进行训练，然后给出一个复杂、非线性的hypotheses $h_W,b(x)$的模型，来拟合我们的数据，其中的W，b为我们模型的参数。">
-<meta name="twitter:image" content="http://yoursite.com/images/pic/300px-SingleNeuron.png">
+<meta name="twitter:title" content="Activation function">
+<meta name="twitter:description" content="激活函数是我们在deep learning中至关重要的一个因子。所以今天就来简单的归纳一下activate function。
+每一个nueron都会带一个activation function，可见其重要性。一般来说，有这么几种性质：
+
+非线性。因为如果说activation function如果说是linear function的话，那么deep learning就可以只需要一层layer就可">
 
 
 
@@ -123,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/18/4Neural Networks/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/14/8activate-function/"/>
 
 
 
 
 
-  <title>Neural Networks | Eric's Playground</title>
+  <title>Activation function | Eric's Playground</title>
   
 
 
@@ -246,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/18/4Neural Networks/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/14/8activate-function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Eric DONG">
@@ -263,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Neural Networks</h1>
+          <h1 class="post-title" itemprop="name headline">Activation function</h1>
         
 
         <div class="post-meta">
@@ -275,8 +279,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-18T17:29:14+08:00">
-                2017-03-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-14T19:25:04+08:00">
+                2018-03-14
               </time>
             
 
@@ -313,24 +317,30 @@
       
 
       
-        <p>这篇文章将简单介绍一下神经网络。我们先考虑有一个supervised learning的问题（），然后我们手头上有一堆带标签的训练样本，用 $(x_i,y_i)$ 来表示。<br>神经网络（Neural Networks）会根据这些样本进行训练，然后给出一个复杂、非线性的hypotheses $h_W,b(x)$的模型，来拟合我们的数据，其中<br>的W，b为我们模型的参数。<br><a id="more"></a></p>
-<p>为了清晰的说明神经网络是啥玩意，先看一个简单的例子，只有一个神经元（neuron）。如下图，就是一个neuron:</p>
-<p><img src="/images/pic/300px-SingleNeuron.png" alt="neuron"></p>
-<p>他有四个输入 $x_1$,$x_2$,$x_3$和为+1的截距，他的输出为</p>
-<p>$$h_{W,b}(x) = f(W^Tx)$$</p>
-<p>$$= f(\sum_{i=1}^3 W_i x_i +b)$$</p>
-<p>其中的$f : \Re \mapsto \Re$ 我们把他叫做 activation function（激活函数）。这里我们就用sigmoid function 作为我们的激活函数：</p>
-<p>$$f(z) = \frac{1}{1 + e^{-z}}$$</p>
-<p>所以缩啊，我们的单个神经元其实就是用logistic regression（逻辑回归）来定义的输入输出映射函数f。</p>
-<p>我们这里用的是 sigmoid 函数，但还是要大力推荐一下另外一个常用的aactivation function, tanh 函数，公式如下：</p>
-<p>$$f(z) = tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$$</p>
-<p>要是把sigmoid 和 tanh函数画出来的话，这两哥们长的还是有点像的：</p>
-<p><img src="/images/pic/400px-Sigmoid_Function.png" alt="Sigmoid function"> <img src="/images/pic/400px-Tanh_Function.png" alt="tanh function"></p>
-<p>但是要注意的是tanh（z）的输出范围是[-1, 1]，而sigmoid 的输出范围是[0, 1]。</p>
-<p>不同于其他地方（比如公开课CS229），我们这里没有用$x_0 = 1$,而是直接用截距参数b。</p>
-<h2 id="Neural-Network-model"><a href="#Neural-Network-model" class="headerlink" title="Neural Network model"></a>Neural Network model</h2><p>在神经网络中，我们还可以吧很多上面介绍的 neurons 连接起来，一个neuron的输出可以是另一个neuron的输入。比如，下面这个简单的神经网络：</p>
-<p><img src="/images/pic/400px-Network331.png" alt="neural network"></p>
-<p>这张图里面，我们用圆来表示网络的输入。那个写着+1的圆，就把他叫做偏置单位，对应于截距项。最左边的<br>叫做输入层，最右边的L3叫做输出。中间的就叫做隐藏层，因为它的值在训练集里我们不去观察。所以例子的神经网络有3个输入单元<br>(不包括偏置单元)，3个隐藏单元，1个输出单元。</p>
+        <p>激活函数是我们在deep learning中至关重要的一个因子。所以今天就来简单的归纳一下activate function。</p>
+<p>每一个nueron都会带一个activation function，可见其重要性。一般来说，有这么几种性质：</p>
+<ol>
+<li>非线性。因为如果说activation function如果说是linear function的话，那么deep learning就可以只需要一层layer就可以了也就是一个多元方程，显然不能表征复杂的模型。这里有点类似于傅里叶展开。</li>
+<li>要可微分。由于我们在train模型的时候，往往需要基于梯度做优化参数。</li>
+<li>单调性。其实这是一个伪命题，只是我们一般碰到的activation function都是单调的而已。</li>
+</ol>
+<p>我们一般常见的activation function有一下几种：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">plot</th>
+<th>Equation</th>
+<th>deriavative </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">-d, –deploy</td>
+<td style="text-align:center">Deploy after generation finishes</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -348,7 +358,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+            <a href="/tags/machine-learning/" rel="tag"># machine-learning</a>
           
         </div>
       
@@ -361,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/18/3读书单/" rel="next" title="2017 Read List">
-                <i class="fa fa-chevron-left"></i> 2017 Read List
+              <a href="/2018/03/14/时间序列预测算法：Arima/" rel="next" title="时间序列预测算法：Arima">
+                <i class="fa fa-chevron-left"></i> 时间序列预测算法：Arima
               </a>
             
           </div>
@@ -370,10 +380,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/20/5Backpropagation/" rel="prev" title="Backpropagation">
-                Backpropagation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -425,17 +431,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -520,22 +517,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Network-model"><span class="nav-number">1.</span> <span class="nav-text">Neural Network model</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

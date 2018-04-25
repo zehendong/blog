@@ -12,7 +12,7 @@ tags: deep learning
 
 为了清晰的说明神经网络是啥玩意，先看一个简单的例子，只有一个神经元（neuron）。如下图，就是一个neuron:
 
-![neuron](/css/images/pic/300px-SingleNeuron.png)
+![neuron](/images/pic/300px-SingleNeuron.png)
 
 他有四个输入 $x_1$,$x_2$,$x_3$和为+1的截距，他的输出为
 
@@ -35,7 +35,7 @@ $$f(z) = tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$$
 
 要是把sigmoid 和 tanh函数画出来的话，这两哥们长的还是有点像的：
 
-![Sigmoid function](/css/images/pic/400px-Sigmoid_Function.png) ![tanh function](/css/images/pic/400px-Tanh_Function.png)
+![Sigmoid function](/images/pic/400px-Sigmoid_Function.png) ![tanh function](/images/pic/400px-Tanh_Function.png)
 
 但是要注意的是tanh（z）的输出范围是[-1, 1]，而sigmoid 的输出范围是[0, 1]。
 
@@ -45,7 +45,7 @@ Neural Network model
 ---
 在神经网络中，我们还可以吧很多上面介绍的 neurons 连接起来，一个neuron的输出可以是另一个neuron的输入。比如，下面这个简单的神经网络：
 
-![neural network](/css/images/pic/400px-Network331.png)
+![neural network](/images/pic/400px-Network331.png)
 
 这张图里面，我们用圆来表示网络的输入。那个写着+1的圆，就把他叫做偏置单位，对应于截距项。最左边的
 叫做输入层，最右边的L3叫做输出。中间的就叫做隐藏层，因为它的值在训练集里我们不去观察。所以例子的神经网络有3个输入单元
