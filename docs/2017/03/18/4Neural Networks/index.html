@@ -85,15 +85,15 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/18/4Neural Networks/index.html">
 <meta property="og:site_name" content="Eric's Playground">
 <meta property="og:description" content="这篇文章将简单介绍一下神经网络。我们先考虑有一个supervised learning的问题（），然后我们手头上有一堆带标签的训练样本，用 $(x_i,y_i)$ 来表示。神经网络（Neural Networks）会根据这些样本进行训练，然后给出一个复杂、非线性的hypotheses $h_W,b(x)$的模型，来拟合我们的数据，其中的W，b为我们模型的参数。">
-<meta property="og:image" content="http://yoursite.com/css/images/pic/300px-SingleNeuron.png">
-<meta property="og:image" content="http://yoursite.com/css/images/pic/400px-Sigmoid_Function.png">
-<meta property="og:image" content="http://yoursite.com/css/images/pic/400px-Tanh_Function.png">
-<meta property="og:image" content="http://yoursite.com/css/images/pic/400px-Network331.png">
-<meta property="og:updated_time" content="2018-04-25T06:48:01.630Z">
+<meta property="og:image" content="http://yoursite.com/images/pic/300px-SingleNeuron.png">
+<meta property="og:image" content="http://yoursite.com/images/pic/400px-Sigmoid_Function.png">
+<meta property="og:image" content="http://yoursite.com/images/pic/400px-Tanh_Function.png">
+<meta property="og:image" content="http://yoursite.com/images/pic/400px-Network331.png">
+<meta property="og:updated_time" content="2018-04-25T07:09:18.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Networks">
 <meta name="twitter:description" content="这篇文章将简单介绍一下神经网络。我们先考虑有一个supervised learning的问题（），然后我们手头上有一堆带标签的训练样本，用 $(x_i,y_i)$ 来表示。神经网络（Neural Networks）会根据这些样本进行训练，然后给出一个复杂、非线性的hypotheses $h_W,b(x)$的模型，来拟合我们的数据，其中的W，b为我们模型的参数。">
-<meta name="twitter:image" content="http://yoursite.com/css/images/pic/300px-SingleNeuron.png">
+<meta name="twitter:image" content="http://yoursite.com/images/pic/300px-SingleNeuron.png">
 
 
 
@@ -315,7 +315,7 @@
       
         <p>这篇文章将简单介绍一下神经网络。我们先考虑有一个supervised learning的问题（），然后我们手头上有一堆带标签的训练样本，用 $(x_i,y_i)$ 来表示。<br>神经网络（Neural Networks）会根据这些样本进行训练，然后给出一个复杂、非线性的hypotheses $h_W,b(x)$的模型，来拟合我们的数据，其中<br>的W，b为我们模型的参数。<br><a id="more"></a></p>
 <p>为了清晰的说明神经网络是啥玩意，先看一个简单的例子，只有一个神经元（neuron）。如下图，就是一个neuron:</p>
-<p><img src="/css/images/pic/300px-SingleNeuron.png" alt="neuron"></p>
+<p><img src="/images/pic/300px-SingleNeuron.png" alt="neuron"></p>
 <p>他有四个输入 $x_1$,$x_2$,$x_3$和为+1的截距，他的输出为</p>
 <p>$$h_{W,b}(x) = f(W^Tx)$$</p>
 <p>$$= f(\sum_{i=1}^3 W_i x_i +b)$$</p>
@@ -325,11 +325,11 @@
 <p>我们这里用的是 sigmoid 函数，但还是要大力推荐一下另外一个常用的aactivation function, tanh 函数，公式如下：</p>
 <p>$$f(z) = tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$$</p>
 <p>要是把sigmoid 和 tanh函数画出来的话，这两哥们长的还是有点像的：</p>
-<p><img src="/css/images/pic/400px-Sigmoid_Function.png" alt="Sigmoid function"> <img src="/css/images/pic/400px-Tanh_Function.png" alt="tanh function"></p>
+<p><img src="/images/pic/400px-Sigmoid_Function.png" alt="Sigmoid function"> <img src="/images/pic/400px-Tanh_Function.png" alt="tanh function"></p>
 <p>但是要注意的是tanh（z）的输出范围是[-1, 1]，而sigmoid 的输出范围是[0, 1]。</p>
 <p>不同于其他地方（比如公开课CS229），我们这里没有用$x_0 = 1$,而是直接用截距参数b。</p>
 <h2 id="Neural-Network-model"><a href="#Neural-Network-model" class="headerlink" title="Neural Network model"></a>Neural Network model</h2><p>在神经网络中，我们还可以吧很多上面介绍的 neurons 连接起来，一个neuron的输出可以是另一个neuron的输入。比如，下面这个简单的神经网络：</p>
-<p><img src="/css/images/pic/400px-Network331.png" alt="neural network"></p>
+<p><img src="/images/pic/400px-Network331.png" alt="neural network"></p>
 <p>这张图里面，我们用圆来表示网络的输入。那个写着+1的圆，就把他叫做偏置单位，对应于截距项。最左边的<br>叫做输入层，最右边的L3叫做输出。中间的就叫做隐藏层，因为它的值在训练集里我们不去观察。所以例子的神经网络有3个输入单元<br>(不包括偏置单元)，3个隐藏单元，1个输出单元。</p>
 
       
