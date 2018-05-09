@@ -1,6 +1,6 @@
 ---
 title: 时间序列预测算法：Arima
-date: 2018-03-14 19:25:04
+date: 2018-03-14 14:25:08
 tags: machine-learning
 banner: https://www.commercialradio.my/wp-content/uploads/2015/03/CRM_Trendstatistic.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 title: How to use jupyter notebook
-date: 2018-03-14 15:48:47
+date: 2017-04-24 15:48:47
 tags:
 banner: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd0UqeAGEP5wdAvLPkDqWhvHk8OovCvHeJ_OPf2fWi4EAICHG0Ew
 ---

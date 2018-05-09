@@ -1,6 +1,6 @@
 ---
 title: Activation function
-date: 2018-03-14 19:25:04
+date: 2017-06-15 16:25:04
 tags: machine-learning
 banner: https://www.commercialradio.my/wp-content/uploads/2015/03/CRM_Trendstatistic.jpg
 ---
