@@ -26,18 +26,26 @@ RNN的结构如下：
 
 Deep RNN
 --
+RNN当然也可以是deep的，只要能够把第一层的output的维度和第二层的input相匹配，就可以了。
+[deep RNN]
 
 Pyramidal RNN
 --
+Pyramidal的模型，能够大大降低计算量。因为rnn中的sequence是无法并行计算的，而菜pyramidal rnn中，两个input可以并行计算，所以就能够在大大降低计算量。
 
 Naive RNN vs LSTM
 --
+由于LSTM的结构，有三个Gate结构，可以获得long-term的信息。
 
 GRU
 --
-GRU参数比较少，少了一个gata。不容易overfitting
+GRU参数比较少，外观和RNN差不多。跟LSTM相比，少了一个Gate。有一种说法就是，GRU因为参数少，就不容易overfitting。
 
 
 Stack RNN
 --
 stack的参数size可以很大。
+
+
+参考文献：
+1. William Chan, Navdeep Jaitly, Quoc V. Le, Oriol Vinyals. "Listen, Attend and Spell".arXiv:1508.01211 [cs.CL]
