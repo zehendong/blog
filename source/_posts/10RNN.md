@@ -19,7 +19,7 @@ RNN的结构如下：
 
 ![RNN 图二](/images/pic/434px-Elman_srnn.png)
 
-图一是单层的上图中的u就是internal state。$o(t)=h_t(Wx_i+Wv_{t-1})$
+图一是单层的上图中的u就是internal state。$o(t)=h_t(Wx_i+Wv)$
 
 可以想象一下，其实我们也可以用一个很长的sequence 来 train feedfoward network，即使是长短不一的sentence，也可以通过补0来解决。而且相比较于feed forward network而言，RNN比较难train起来。但与feedfoward network相对比，RNN的优势在于：
 1. 比如我们现在有一个很长的sequence需要去train。在training feedfoward netwok的时候，input layer必须也要很大，导致了layer的参数比较多，就容易在training data上比较容易出好的结果，会over-fitting；

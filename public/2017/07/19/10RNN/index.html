@@ -95,7 +95,7 @@ A recurrent neural network (RNN) is a class of artificial neural network where c
 <meta property="og:image" content="http://yoursite.com/images/pic/pyramidalrnn.png">
 <meta property="og:image" content="http://yoursite.com/images/pic/lstmvsrnn.png">
 <meta property="og:image" content="http://yoursite.com/images/pic/stackrnn.png">
-<meta property="og:updated_time" content="2018-05-17T06:40:41.586Z">
+<meta property="og:updated_time" content="2018-05-17T06:44:58.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The introduction of RNNs">
 <meta name="twitter:description" content="RNN简单介绍RNN发明于1980s，照例先看一下维基的定义：
@@ -330,7 +330,7 @@ A recurrent neural network (RNN) is a class of artificial neural network where c
 <p><img src="/images/pic/640px-Recurrent_neural_network_unfold.svg.png" alt="RNN 图一"></p>
 <p>内部的结构其实是这样子，</p>
 <p><img src="/images/pic/434px-Elman_srnn.png" alt="RNN 图二"></p>
-<p>图一是单层的上图中的u就是internal state。$o(t)=h_t(Wx<em>i+Wv</em>{t-1})$</p>
+<p>图一是单层的上图中的u就是internal state。$o(t)=h_t(Wx_i+Wv)$</p>
 <p>可以想象一下，其实我们也可以用一个很长的sequence 来 train feedfoward network，即使是长短不一的sentence，也可以通过补0来解决。而且相比较于feed forward network而言，RNN比较难train起来。但与feedfoward network相对比，RNN的优势在于：</p>
 <ol>
 <li>比如我们现在有一个很长的sequence需要去train。在training feedfoward netwok的时候，input layer必须也要很大，导致了layer的参数比较多，就容易在training data上比较容易出好的结果，会over-fitting；</li>
