@@ -80,24 +80,24 @@
 
 
 <meta name="description" content="Backpropagation 算法在神经网络中扮演这重要作用。他的出现使得我们先计算neural network的gradients descent的时候更加有效。本文就重点来讲讲backpropagation的实现原理。
-深度学习中的名词都看上去比较高大上，什么backpropagation\forwark pass\backwark pass等等，其实内部用到的数学知识就只用到了chain">
+backpropagation，其实内部用到的数学知识就只用到了chain role。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Backpropagation">
 <meta property="og:url" content="http://yoursite.com/2017/03/20/5Backpropagation/index.html">
 <meta property="og:site_name" content="Eric's Playground">
 <meta property="og:description" content="Backpropagation 算法在神经网络中扮演这重要作用。他的出现使得我们先计算neural network的gradients descent的时候更加有效。本文就重点来讲讲backpropagation的实现原理。
-深度学习中的名词都看上去比较高大上，什么backpropagation\forwark pass\backwark pass等等，其实内部用到的数学知识就只用到了chain">
+backpropagation，其实内部用到的数学知识就只用到了chain role。">
 <meta property="og:image" content="http://yoursite.com/images/pic/bp1.png">
 <meta property="og:image" content="http://yoursite.com/images/pic/bp2.png">
 <meta property="og:image" content="http://yoursite.com/images/pic/bp3.png">
 <meta property="og:image" content="http://yoursite.com/images/pic/bp4.png">
 <meta property="og:image" content="http://yoursite.com/images/pic/bp5.png">
 <meta property="og:image" content="http://yoursite.com/images/pic/bp6.png">
-<meta property="og:updated_time" content="2018-04-25T07:09:33.488Z">
+<meta property="og:updated_time" content="2018-05-17T02:32:20.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Backpropagation">
 <meta name="twitter:description" content="Backpropagation 算法在神经网络中扮演这重要作用。他的出现使得我们先计算neural network的gradients descent的时候更加有效。本文就重点来讲讲backpropagation的实现原理。
-深度学习中的名词都看上去比较高大上，什么backpropagation\forwark pass\backwark pass等等，其实内部用到的数学知识就只用到了chain">
+backpropagation，其实内部用到的数学知识就只用到了chain role。">
 <meta name="twitter:image" content="http://yoursite.com/images/pic/bp1.png">
 
 
@@ -319,7 +319,7 @@
 
       
         <p>Backpropagation 算法在神经网络中扮演这重要作用。他的出现使得我们先计算neural network的gradients descent的时候更加有效。本文就重点来讲讲backpropagation的实现原理。</p>
-<p>深度学习中的名词都看上去比较高大上，什么backpropagation\forwark pass\backwark pass等等，其实内部用到的数学知识就只用到了chain role。</p>
+<p>backpropagation，其实内部用到的数学知识就只用到了chain role。</p>
 <p><img src="/images/pic/bp1.png" alt="pic1"><br><a id="more"></a></p>
 <p>比方说我们现在有输入 $x^n$ 经过 neural network 得到输出 $y^n$,我们把残差记作 $C_n$</p>
 <p>我们就可以得到残差，及其微分<br>$$L(\theta) = \sum_{i=1}^N C^n(\theta)$$</p>

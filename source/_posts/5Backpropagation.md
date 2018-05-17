@@ -7,7 +7,7 @@ tags: deep learning
 
 Backpropagation 算法在神经网络中扮演这重要作用。他的出现使得我们先计算neural network的gradients descent的时候更加有效。本文就重点来讲讲backpropagation的实现原理。
 
-深度学习中的名词都看上去比较高大上，什么backpropagation\forwark pass\backwark pass等等，其实内部用到的数学知识就只用到了chain role。
+backpropagation，其实内部用到的数学知识就只用到了chain role。
 
 ![pic1](/images/pic/bp1.png)
 <!--more-->
